@@ -7,22 +7,23 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<value>
-				/user_api.do=userapiController	
-				/notification_api.do=notificationapiController		
+				/user_api.do=userapiController
+				/notification_api.do=notificationapiController
 				/index.do=filenameController
 				/user.do=userController
 				/session.do=sessionController
-				/notification.do=notificationController		
+				/notification.do=notificationController
 			</value>
 		</property>
 		<property name="order" value="1" />
 	</bean>
-	
+
 	<bean id="userapiController" class="org.androidpn.server.console.api.UserApiController">
 		<property name="methodNameResolver" ref="paramResolver" />
 	</bean>
-	
-	<bean id="notificationapiController" class="org.androidpn.server.console.api.NotificationApiController">
+
+	<bean id="notificationapiController"
+		class="org.androidpn.server.console.api.NotificationApiController">
 		<property name="methodNameResolver" ref="paramResolver" />
 	</bean>
 
@@ -58,12 +59,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!--
-		<bean id="exceptionResolver"
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings"> <props> <prop
-		key="java.lang.Exception">error</prop> </props> </property> </bean>
-	-->
+	<!-- <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> <props> <prop key="java.lang.Exception">error</prop> 
+		</props> </property> </bean> -->
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">

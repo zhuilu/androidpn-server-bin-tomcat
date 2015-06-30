@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <property name="java-output-path" value="/Androidpn/WebRoot/WEB-INF/classes"/>
-        <property name="context-root" value="/"/>
         <property name="me-merge-utility-modules" value="true"/>
+        <property name="context-root" value="/androidpn"/>
     </wb-module>
 </project-modules>

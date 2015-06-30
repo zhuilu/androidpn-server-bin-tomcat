@@ -75,6 +75,7 @@ public class UserApiController extends MultiActionController {
 			}
 			// logger.debug("user.online=" + user.isOnline());
 		}
+		System.out.println("{\"data\":" + out.toString() + "}");
 		response.getWriter().print("{\"data\":" + out.toString() + "}");
 	}
 
