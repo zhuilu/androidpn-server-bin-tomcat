@@ -31,143 +31,154 @@ import javax.persistence.Transient;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-/** 
+/**
  * This class represents the basic user object.
- *
+ * 
  * @author Sehwan Noh (devnoh@gmail.com)
  */
 @Entity
 @Table(name = "apn_user")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 4733464888738356502L;
+	private static final long serialVersionUID = 4733464888738356502L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @Column(name = "username", nullable = false, length = 64, unique = true)
-    private String username;
+	@Column(name = "username", nullable = false, length = 64, unique = true)
+	private String username;
 
-    @Column(name = "password", length = 64)
-    private String password;
+	@Column(name = "password", length = 64)
+	private String password;
 
-    @Column(name = "email", length = 64)
-    private String email;
+	@Column(name = "group", length = 64)
+	private String group;
 
-    @Column(name = "name", length = 64)
-    private String name;
+	public String getGroup() {
+		return group;
+	}
 
-    @Column(name = "created_date", updatable = false)
-    private Date createdDate = new Date();
+	public void setGroup(String group) {
+		this.group = group;
+	}
 
-    @Column(name = "updated_date")
-    private Date updatedDate;
+	@Column(name = "email", length = 64)
+	private String email;
 
-    @Transient
-    private boolean online;
+	@Column(name = "name", length = 64)
+	private String name;
 
-    public User() {
-    }
+	@Column(name = "created_date", updatable = false)
+	private Date createdDate = new Date();
 
-    public User(final String username) {
-        this.username = username;
-    }
+	@Column(name = "updated_date")
+	private Date updatedDate;
 
-    public Long getId() {
-        return id;
-    }
+	@Transient
+	private boolean online;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public User() {
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public User(final String username) {
+		this.username = username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
-    }
+	public Date getCreatedDate() {
+		return createdDate;
+	}
 
-    public boolean isOnline() {
-        return online;
-    }
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
-    public void setOnline(boolean online) {
-        this.online = online;
-    }
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof User)) {
-            return false;
-        }
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 
-        final User obj = (User) o;
-        if (username != null ? !username.equals(obj.username)
-                : obj.username != null) {
-            return false;
-        }
-        if (!(createdDate.getTime() == obj.createdDate.getTime())) {
-            return false;
-        }
-        return true;
-    }
+	public boolean isOnline() {
+		return online;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = 0;
-        result = 29 * result + (username != null ? username.hashCode() : 0);
-        result = 29 * result
-                + (createdDate != null ? createdDate.hashCode() : 0);
-        return result;
-    }
+	public void setOnline(boolean online) {
+		this.online = online;
+	}
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this,
-                ToStringStyle.MULTI_LINE_STYLE);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof User)) {
+			return false;
+		}
+
+		final User obj = (User) o;
+		if (username != null ? !username.equals(obj.username)
+				: obj.username != null) {
+			return false;
+		}
+		if (!(createdDate.getTime() == obj.createdDate.getTime())) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = 0;
+		result = 29 * result + (username != null ? username.hashCode() : 0);
+		result = 29 * result
+				+ (createdDate != null ? createdDate.hashCode() : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this,
+				ToStringStyle.MULTI_LINE_STYLE);
+	}
 
 }
