@@ -52,15 +52,15 @@ public class User implements Serializable {
 	@Column(name = "password", length = 64)
 	private String password;
 
-	@Column(name = "group", length = 64)
-	private String group;
+	@Column(name = "cell", length = 64)
+	private String cell = "";
 
-	public String getGroup() {
-		return group;
+	public String getCell() {
+		return cell;
 	}
 
-	public void setGroup(String group) {
-		this.group = group;
+	public void setCell(String cell) {
+		this.cell = cell;
 	}
 
 	@Column(name = "email", length = 64)
