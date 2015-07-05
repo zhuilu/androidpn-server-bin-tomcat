@@ -35,6 +35,7 @@ public class NotificationApiController extends MultiActionController {
 
 	public void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		System.out.println("NotificationApiController request=" + request);
 		String broadcast = ServletRequestUtils.getStringParameter(request,
 				"broadcast", "Y");
 		String username = ServletRequestUtils.getStringParameter(request,
@@ -47,12 +48,12 @@ public class NotificationApiController extends MultiActionController {
 		String apiKey = Config.getString("apiKey", "");
 		logger.debug("apiKey=" + apiKey);
 
-//		if (broadcast.equalsIgnoreCase("Y")) {
-//			notificationManager.sendBroadcast(apiKey, title, message, uri);
-//		} else {
-			notificationManager.sendNotifcationToUser(apiKey, username, title,
-					message, uri);
-//		}
+		// if (broadcast.equalsIgnoreCase("Y")) {
+		// notificationManager.sendBroadcast(apiKey, title, message, uri);
+		// } else {
+		notificationManager.sendNotifcationToUser(apiKey, username, title,
+				message, uri);
+		// }
 
 		response.getWriter().print(
 				"{\"result\":\"0\",\"description\":\"success\"}");

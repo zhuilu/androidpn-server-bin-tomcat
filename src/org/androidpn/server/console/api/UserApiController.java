@@ -29,11 +29,12 @@ public class UserApiController extends MultiActionController {
 
 	public UserApiController() {
 		userService = ServiceLocator.getUserService();
+
 	}
 
 	public void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
+		System.out.println("UserApiController request=" + request);
 		PresenceManager presenceManager = new PresenceManager();
 		List<User> userList;
 		Date createDate = new Date();
