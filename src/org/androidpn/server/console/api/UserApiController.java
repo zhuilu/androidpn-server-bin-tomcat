@@ -58,22 +58,24 @@ public class UserApiController extends MultiActionController {
 		ArrayList<String> out = new ArrayList<String>();
 		for (User user : userList) {
 
-			if ("1".equals(online) && presenceManager.isAvailable(user)) {
-				// Presence presence = presenceManager.getPresence(user);
-				user.setOnline(true);
-				out.add("\"" + user.getUsername() + "\"");
-			} else if ("0".equals(online) && !presenceManager.isAvailable(user)) {
-				user.setOnline(false);
-				out.add("\"" + user.getUsername() + "\"");
-			} else if (online == null) {
-				if (presenceManager.isAvailable(user)) {
-					// Presence presence = presenceManager.getPresence(user);
-					user.setOnline(true);
-				} else {
-					user.setOnline(false);
-				}
-				out.add("\"" + user.getUsername() + "\"");
-			}
+			// if ("1".equals(online) && presenceManager.isAvailable(user)) {
+			// // Presence presence = presenceManager.getPresence(user);
+			// user.setOnline(true);
+			// out.add("\"" + user.getUsername() + "\"");
+			// } else if ("0".equals(online) &&
+			// !presenceManager.isAvailable(user)) {
+			// user.setOnline(false);
+			// out.add("\"" + user.getUsername() + "\"");
+			// } else if (online == null) {
+			// if (presenceManager.isAvailable(user)) {
+			// // Presence presence = presenceManager.getPresence(user);
+			// user.setOnline(true);
+			// } else {
+			// user.setOnline(false);
+			// }
+			// out.add("\"" + user.getUsername() + "\"");
+			// }
+			out.add(user.toString());
 			// logger.debug("user.online=" + user.isOnline());
 		}
 		System.out.println("{\"data\":" + out.toString() + "}");

@@ -30,6 +30,8 @@ import javax.persistence.Transient;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.mortbay.util.ajax.JSON;
+import org.mortbay.util.ajax.JSONPojoConvertor;
 
 /**
  * This class represents the basic user object.
@@ -177,8 +179,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
+		return "{username:" + "\"" + username + "\"" + ",online:" + "\""
+				+ online + "\"" + "}";
 	}
-
 }
